@@ -18,7 +18,10 @@ def main():
     response = vk.wall.get(count=5)
     if response['items']:
         for i in response['items']:
-            print(i)
+            print(f'{i["text"]};')
+            date = datetime.datetime.fromtimestamp(i['date'])
+            print(f"date: {date.strftime('%Y-%m-%d')}, time: {date.strftime('%H:%M:%S')}")
+            
 
 if __name__ == '__main__':
     main()
